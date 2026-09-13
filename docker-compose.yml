@@ -1,0 +1,56 @@
+# Run the whole product with one command:
+#
+#     docker compose up --build
+#
+# Frontend on http://localhost:5173, API on http://localhost:8001.
+# Ports match the local dev setup so bookmarks and .env files keep working.
+
+services:
+  api:
+    build:
+      context: ./backend
+    # Named so logs and `docker compose exec` read clearly.
+    container_name: resume-api
+    ports:
+      # 8001 on the host because another FastAPI app already owns 8000 on this
+      # machine. The container always listens on 8000 internally.
+      - "8001:8000"
+    environment:
+      APP_NAME: "AI Resume Analyzer"
+      ENVIRONMENT: production
+      # The browser calls the API from the frontend's origin, so that origin -
+      # not the container name - is what has to be allow-listed.
+      CORS_ORIGINS: "http://localhost:5173,http://127.0.0.1:5173"
+      MAX_UPLOAD_MB: "5"
+      ENABLE_SEMANTIC: "true"
+    # Optional: drop a .env next to this file to override any of the above
+    # without editing it. Values here win over the file.
+    env_file:
+      - path: ./backend/.env
+        required: false
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      # Generous: the model loads during startup, which takes ~15s cold.
+      start_period: 90s
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        # Baked into the bundle at build time. Because the browser - not the
+        # container - makes this call, it must be an address the browser can
+        # reach: localhost, never "http://api:8000".
+        VITE_API_URL: http://127.0.0.1:8001
+    container_name: resume-web
+    ports:
+      - "5173:80"
+    depends_on:
+      api:
+        # Wait for the API to pass its healthcheck, so the first page load
+        # never hits a backend that is still loading the model.
+        condition: service_healthy
+    restart: unless-stopped

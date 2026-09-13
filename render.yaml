@@ -1,0 +1,56 @@
+# Render Blueprint for the backend.
+#
+# Optional: you can create the service by hand in the dashboard instead (the
+# README walks through it). Committing this file means Render can build the
+# service from the repo, and that the deployment settings are reviewable in git
+# rather than living only in a web form.
+#
+# To use it: Render dashboard -> New -> Blueprint -> pick this repo.
+
+services:
+  - type: web
+    name: resume-analyzer-api
+    runtime: docker
+    # rootDir makes Render treat backend/ as the working directory, so the
+    # Docker build context is backend/ and dockerfilePath is relative to it.
+    # Without this the context would be the repo root and every COPY in the
+    # Dockerfile ("COPY requirements.txt .") would miss its file.
+    # It also means frontend-only commits do not trigger a backend redeploy.
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    region: singapore
+    # Measured on this image: 402MB resident with the model loaded, stable
+    # under load. Free gives 512MB, so it fits with ~20% headroom.
+    #
+    # Note that `starter` has the SAME 512MB - paying only stops the instance
+    # sleeping, it does not buy memory. So if this is ever OOM-killed the fix
+    # is ENABLE_SEMANTIC=false (drops to 142MB, measured), not a plan upgrade.
+    plan: free
+    healthCheckPath: /api/health
+    autoDeploy: true
+
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+
+      # The browser calls this API from the Vercel origin, so that exact origin
+      # must be allow-listed. Set it AFTER the frontend is deployed and you know
+      # the URL; include both the production domain and any preview domain you
+      # want to work.
+      - key: CORS_ORIGINS
+        sync: false
+
+      # Set to "false" if the service runs out of memory: it skips loading the
+      # embedding model, taking the container from 402MB to 142MB. The API
+      # keeps working - scores come from the two remaining tiers, renormalised
+      # to 0-100 - and /api/health reports embeddings_ready=false.
+      - key: ENABLE_SEMANTIC
+        value: "true"
+
+      - key: MAX_UPLOAD_MB
+        value: "5"
+
+      # The model is baked into the image, so no network access to Hugging Face
+      # is needed or wanted at runtime.
+      - key: HF_HUB_OFFLINE
+        value: "1"
