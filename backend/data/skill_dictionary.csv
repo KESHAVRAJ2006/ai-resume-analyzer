@@ -1,0 +1,94 @@
+skill_id,canonical_name,category,aliases
+python,Python,Programming Languages,py|python3
+java,Java,Programming Languages,
+javascript,JavaScript,Programming Languages,js|ecmascript|vanilla js
+typescript,TypeScript,Programming Languages,ts
+cpp,C++,Programming Languages,cpp|c plus plus
+csharp,C#,Programming Languages,c sharp|csharp
+c_lang,C,Programming Languages,c language|embedded c
+r_lang,R,Programming Languages,r language|r programming
+go_lang,Go,Programming Languages,golang
+sql,SQL,Programming Languages,structured query language
+bash,Bash,Programming Languages,shell scripting|shell|zsh|powershell
+php,PHP,Programming Languages,
+scala,Scala,Programming Languages,
+matlab,MATLAB,Programming Languages,
+react,React,Web & Frontend,react.js|reactjs|react js
+nextjs,Next.js,Web & Frontend,nextjs|next js
+vuejs,Vue.js,Web & Frontend,vue|vuejs|vue js
+angular,Angular,Web & Frontend,angularjs|angular js
+html,HTML,Web & Frontend,html5
+css,CSS,Web & Frontend,css3|sass|scss
+tailwind,TailwindCSS,Web & Frontend,tailwind|tailwind css
+bootstrap,Bootstrap,Web & Frontend,
+redux,Redux,Web & Frontend,redux toolkit
+figma,Figma,Web & Frontend,
+responsive_design,Responsive Design,Web & Frontend,mobile first|cross browser
+nodejs,Node.js,Backend & APIs,node|nodejs|node js
+express,Express.js,Backend & APIs,express|expressjs|express js
+fastapi,FastAPI,Backend & APIs,fast api
+django,Django,Backend & APIs,django rest framework
+flask,Flask,Backend & APIs,
+spring_boot,Spring Boot,Backend & APIs,spring|springboot
+dotnet,.NET,Backend & APIs,dotnet|asp.net|.net core
+rest_api,REST APIs,Backend & APIs,rest|restful|rest api|api development|web services
+graphql,GraphQL,Backend & APIs,
+microservices,Microservices,Backend & APIs,microservice architecture
+authentication,Authentication,Backend & APIs,jwt|oauth|auth
+postgresql,PostgreSQL,Databases & Data Engineering,postgres
+mysql,MySQL,Databases & Data Engineering,
+mongodb,MongoDB,Databases & Data Engineering,mongo
+redis,Redis,Databases & Data Engineering,
+sqlite,SQLite,Databases & Data Engineering,
+elasticsearch,Elasticsearch,Databases & Data Engineering,elastic search
+spark,Apache Spark,Databases & Data Engineering,spark|pyspark
+hadoop,Hadoop,Databases & Data Engineering,hdfs|mapreduce
+airflow,Apache Airflow,Databases & Data Engineering,airflow
+etl,ETL,Databases & Data Engineering,etl pipelines|data pipelines|data pipeline
+data_modeling,Data Modeling,Databases & Data Engineering,database design|schema design|normalization
+machine_learning,Machine Learning,Machine Learning & AI,ml|supervised learning|unsupervised learning|predictive modeling
+deep_learning,Deep Learning,Machine Learning & AI,dl|neural networks|neural network|cnn|rnn|lstm
+scikit_learn,scikit-learn,Machine Learning & AI,sklearn|scikit learn|sci kit learn
+tensorflow,TensorFlow,Machine Learning & AI,tf|tensor flow
+pytorch,PyTorch,Machine Learning & AI,torch
+keras,Keras,Machine Learning & AI,
+nlp,Natural Language Processing,Machine Learning & AI,nlp|text mining|text classification|sentiment analysis
+computer_vision,Computer Vision,Machine Learning & AI,image processing|object detection|image classification
+opencv,OpenCV,Machine Learning & AI,open cv
+transformers,Transformers,Machine Learning & AI,hugging face|huggingface|bert|llm|large language models
+tfidf,TF-IDF,Machine Learning & AI,tf idf|tfidf|term frequency inverse document frequency
+xgboost,XGBoost,Machine Learning & AI,gradient boosting|lightgbm|random forest
+recommender,Recommendation Systems,Machine Learning & AI,recommender systems|recommendation system|collaborative filtering
+mlops,MLOps,Machine Learning & AI,ml ops|model deployment|model monitoring|model serving
+feature_engineering,Feature Engineering,Machine Learning & AI,feature selection|feature extraction
+pandas,Pandas,Data Analysis & Visualization,
+numpy,NumPy,Data Analysis & Visualization,num py
+matplotlib,Matplotlib,Data Analysis & Visualization,
+seaborn,Seaborn,Data Analysis & Visualization,
+power_bi,Power BI,Data Analysis & Visualization,powerbi
+tableau,Tableau,Data Analysis & Visualization,
+excel,Excel,Data Analysis & Visualization,microsoft excel|ms excel|advanced excel|pivot tables
+statistics,Statistics,Data Analysis & Visualization,statistical analysis|hypothesis testing|probability|regression analysis
+data_visualization,Data Visualization,Data Analysis & Visualization,data viz|dashboards|dashboard|reporting
+ab_testing,A/B Testing,Data Analysis & Visualization,ab testing|experimentation|split testing
+data_cleaning,Data Cleaning,Data Analysis & Visualization,data wrangling|data preprocessing|data preparation
+docker,Docker,Cloud & DevOps,containerization|containers
+kubernetes,Kubernetes,Cloud & DevOps,k8s
+aws,AWS,Cloud & DevOps,amazon web services|ec2|s3|lambda
+azure,Azure,Cloud & DevOps,microsoft azure
+gcp,Google Cloud,Cloud & DevOps,gcp|google cloud platform|bigquery
+cicd,CI/CD,Cloud & DevOps,ci cd|continuous integration|continuous deployment|continuous delivery
+jenkins,Jenkins,Cloud & DevOps,
+terraform,Terraform,Cloud & DevOps,infrastructure as code|iac
+linux,Linux,Cloud & DevOps,unix|ubuntu
+nginx,Nginx,Cloud & DevOps,load balancing|reverse proxy
+github_actions,GitHub Actions,Cloud & DevOps,gh actions
+monitoring,Monitoring,Cloud & DevOps,prometheus|grafana|observability|logging
+git,Git,Practices & Tools,version control
+github,GitHub,Practices & Tools,
+agile,Agile,Practices & Tools,scrum|kanban|sprint planning
+unit_testing,Unit Testing,Practices & Tools,pytest|junit|jest|test driven development|tdd|automated testing
+jira,Jira,Practices & Tools,
+postman,Postman,Practices & Tools,
+system_design,System Design,Practices & Tools,software architecture|design patterns|scalability
+problem_solving,Problem Solving,Practices & Tools,analytical thinking|critical thinking|debugging
