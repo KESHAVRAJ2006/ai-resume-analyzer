@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    /* Anchor links and the sticky bar both need this. */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-primary font-sans text-body antialiased;
+    /* Inter's optical sizing and tabular figures are opt-in features. Numbers
+       are enabled per-element with .tabular-nums; this just turns on the
+       contextual alternates Inter ships with. */
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* One focus style for the entire product. Never remove it - only restyle it.
+     :focus-visible means it appears for keyboard users and not on mouse click. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    @apply outline-none ring-2 ring-accent-ring ring-offset-2 ring-offset-base;
+  }
+
+  ::selection {
+    @apply bg-accent-soft text-primary;
+  }
+
+  /* Accessibility, not decoration: some people get motion sickness from
+     animation. The whole motion system collapses to near-instant here. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* The product's one text gradient. Used on the hero word and nowhere else,
+     so it keeps its impact. */
+  .text-gradient {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+  }
+
+  /* Hairline separator that fades at both ends - reads as lighter than a
+     full-width 1px rule. */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      theme("colors.line") 15%,
+      theme("colors.line") 85%,
+      transparent
+    );
+  }
+}
