@@ -1,0 +1,10 @@
+# Normalise to LF in the repository. Without this, Windows checkouts commit
+# CRLF and the Docker build (Linux) sees \r at the end of every line - which
+# breaks shell scripts and makes diffs unreadable.
+* text=auto eol=lf
+
+# Binary files must never be converted.
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.ico  binary

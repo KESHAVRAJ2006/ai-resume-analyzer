@@ -1,0 +1,26 @@
+# ---- Web layer (Phase 1) -------------------------------------------------
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.0
+python-multipart==0.0.20       # required by FastAPI to accept multipart file uploads
+
+# ---- Resume parsing (Phase 2) -------------------------------------------
+pypdf==5.1.0
+python-docx==1.1.2
+
+# ---- Classic ML tier (Phase 3-4) ----------------------------------------
+scikit-learn==1.6.0
+numpy==2.2.1
+pandas==2.2.3
+
+# ---- Semantic tier (Phase 5) --------------------------------------------
+# Pulls in torch (~300MB CPU wheel). Installed now so no later phase stalls.
+sentence-transformers==3.3.1
+
+# ---- PDF report (Phase 8) -----------------------------------------------
+reportlab==4.2.5
+
+# ---- Tests (Phase 2 onwards) --------------------------------------------
+pytest==8.3.4
+httpx==0.28.1                  # FastAPI's TestClient needs this
